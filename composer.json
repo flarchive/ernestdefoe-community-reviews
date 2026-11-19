@@ -1,0 +1,92 @@
+{
+    "name": "ernestdefoe/community-reviews",
+    "description": "Community Reviews: a catalog of products your members review, with a rating and comment per criterion, photos, price paid, merchants, comments and moderation. Feature for feature with the MyBB Community Reviews plugin.",
+    "keywords": ["flarum", "flarum-extension", "reviews", "product reviews", "ratings", "catalog", "merchants"],
+    "type": "flarum-extension",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ernest Defoe",
+            "email": "ernestdefoe@gmail.com"
+        }
+    ],
+    "homepage": "https://github.com/ernestdefoe/community-reviews",
+    "support": {
+        "issues": "https://github.com/ernestdefoe/community-reviews/issues",
+        "source": "https://github.com/ernestdefoe/community-reviews"
+    },
+    "funding": [
+        {
+            "type": "other",
+            "url": "https://buymeacoffee.com/ernestdefoe"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "flarum/core": "^2.0",
+        "intervention/image": "^3.0"
+    },
+    "suggest": {
+        "flarum/gdpr": "A member's reviews, comments and photos in their data export, and anonymised on erasure.",
+        "ernestdefoe/renown": "XP for writing a review.",
+        "ernestdefoe/page-builder": "The latest reviews as a Page Builder block.",
+        "ernestdefoe/bespoke": "The latest reviews in any Bespoke zone.",
+        "fof/forum-widgets-core": "The latest reviews as a FoF widget."
+    },
+    "autoload": {
+        "psr-4": {
+            "ErnestDefoe\\CommunityReviews\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ErnestDefoe\\CommunityReviews\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "Community Reviews",
+            "category": "feature",
+            "icon": {
+                "name": "fas fa-star-half-stroke",
+                "backgroundColor": "#6b4fbb",
+                "color": "#fff"
+            },
+            "optional-dependencies": [
+                "flarum/gdpr",
+                "ernestdefoe/renown",
+                "ernestdefoe/page-builder",
+                "ernestdefoe/bespoke",
+                "fof/forum-widgets-core"
+            ]
+        }
+    },
+    "require-dev": {
+        "flarum/gdpr": "^2.0",
+        "flarum/phpstan": "^2.0",
+        "flarum/testing": "^2.0",
+        "phpstan/phpstan-strict-rules": "^2.0"
+    },
+    "scripts": {
+        "test": [
+            "@test:integration"
+        ],
+        "test:integration": "phpunit -c tests/phpunit.integration.xml",
+        "test:setup": "@php tests/integration/setup.php",
+        "analyse:phpstan": "phpstan analyse"
+    },
+    "scripts-descriptions": {
+        "test": "Runs all tests.",
+        "test:integration": "Runs all integration tests.",
+        "test:setup": "Sets up a database for use with integration tests. Execute this only once.",
+        "analyse:phpstan": "Run static analysis"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "phpstan/extension-installer": false
+        }
+    },
+    "minimum-stability": "beta",
+    "prefer-stable": true
+}
